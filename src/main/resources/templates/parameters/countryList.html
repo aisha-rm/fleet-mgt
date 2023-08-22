@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="_layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <!--Content of the page, sample of content to use layout-->
+        <section class="section">
+            <div class="row">
+              <div class="col-lg-12">
+      
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">List of Countries</h5>
+                    <p>These are the countries available</p>
+      
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Country</th>
+                          <th scope="col">Capital</th>
+                          <th scope="col">Code</th>
+                          <th scope="col">Nationality</th>
+                          <th scope="col">Continent</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr th:each="country:${countryList}">
+                          <th th:text="${country.id}" scope="row"></th>
+                          <td th:text="${country.description}">Brandon Jacob</td>
+                          <td th:text="${country.capital}"></td>
+                          <td th:text="${country.code}"></td>
+                          <td th:text="${country.nationality}"></td>
+                          <td th:text="${country.continent}"></td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+      
+                  </div>
+                </div>
+      
+              </div>
+            </div> 
+        </section>
+      
+    </div>
+</body>
+</html>
