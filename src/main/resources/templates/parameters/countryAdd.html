@@ -17,40 +17,41 @@
               <h5 class="card-title">Add New Country</h5>
 
               <!-- Horizontal Form -->
-              <form>
+              <form th:action="@{/countries}" method="post"> <!-- posts the form content to the url of action-->
                 <div class="row mb-3">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Country</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText">
+                    <input name="description" type="text" class="form-control" id="inputText">
+                    <!--use specify "name" in input above to reflect the variable name in the country model-->
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Capital</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText">
+                    <input name="capital" type="text" class="form-control" id="inputText">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword3" class="col-sm-2 col-form-label">Code</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText">
+                    <input name="code" type="text" class="form-control" id="inputText">
                   </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Nationality</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputText">
+                      <input name="nationality" type="text" class="form-control" id="inputText">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Continent</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputText">
+                      <input name="continent" type="text" class="form-control" id="inputText">
                     </div>
                   </div>
  
                 <div class="text-center">
-                  <a href="/addCountry" type="submit" class="btn btn-success">Save</a>
+                  <button type="submit" class="btn btn-success">Save</button>
                   <a href="/countries" type="reset" class="btn btn-warning">Exit</a>
                 </div>
               </form><!-- End Horizontal Form -->

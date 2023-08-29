@@ -50,6 +50,12 @@
                       <td th:text="${country.code}"></td>
                       <td th:text="${country.nationality}"></td>
                       <td th:text="${country.continent}"></td>
+                      <td>
+                        <a href="#" type="button" class="btn btn-success">Update</a>
+                        <a type="button" class="btn btn-warning"
+                        onclick="return confirm('Are you sure you want to delete this country?')"
+                        th:href="@{'/countries/delete/' + ${country.id}}">Delete</a>
+                      </td>
                     </tr>
                     
                   </tbody>
