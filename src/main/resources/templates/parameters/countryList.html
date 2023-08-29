@@ -11,48 +11,57 @@
 
 <body>
     <div layout:fragment="content">
-        <!--Content of the page, sample of content to use layout-->
-        <section class="section">
-            <div class="row">
-              <div class="col-lg-12">
-      
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">List of Countries</h5>
-                    <p>These are the countries available</p>
-      
-                    <!-- Table with stripped rows -->
-                    <table class="table datatable">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Country</th>
-                          <th scope="col">Capital</th>
-                          <th scope="col">Code</th>
-                          <th scope="col">Nationality</th>
-                          <th scope="col">Continent</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr th:each="country:${countryList}">
-                          <th th:text="${country.id}" scope="row"></th>
-                          <td th:text="${country.description}">Brandon Jacob</td>
-                          <td th:text="${country.capital}"></td>
-                          <td th:text="${country.code}"></td>
-                          <td th:text="${country.nationality}"></td>
-                          <td th:text="${country.continent}"></td>
-                        </tr>
-                        
-                      </tbody>
-                    </table>
-                    <!-- End Table with stripped rows -->
-      
-                  </div>
-                </div>
-      
+
+      <section class="section">
+
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <br>
+              <a href="/addCountry" type="submit" class="btn btn-primary">Add New Country</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">  
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">List of Countries</h5>
+                <p>These are the countries available</p>
+  
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Capital</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Nationality</th>
+                      <th scope="col">Continent</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="country:${countryList}">
+                      <th th:text="${country.id}" scope="row"></th>
+                      <td th:text="${country.description}">Brandon Jacob</td>
+                      <td th:text="${country.capital}"></td>
+                      <td th:text="${country.code}"></td>
+                      <td th:text="${country.nationality}"></td>
+                      <td th:text="${country.continent}"></td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
+  
               </div>
-            </div> 
-        </section>
+            </div>
+  
+          </div>
+        </div> 
+      </section>
       
     </div>
 </body>
