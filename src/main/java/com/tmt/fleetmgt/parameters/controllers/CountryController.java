@@ -1,6 +1,7 @@
 package com.tmt.fleetmgt.parameters.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,16 @@ public class CountryController {
         return "parameters/countryList";
     }
 
-    @GetMapping("/addCountry")
+    @GetMapping("/countryAdd")
     public String addCountry() {
         return "parameters/countryAdd";
+    }
+
+    @GetMapping("/countryEdit/{id}")
+    public String editCountry(@PathVariable Integer id, Model model) {
+        Country country = countryService.getCountryById(id);
+        model.addAttribute("country", country);
+        return "parameters/countryEdit";
     }
 
     @PostMapping("/countries")  //use same url as the countryList to wh it will be added
@@ -43,6 +51,12 @@ public class CountryController {
     //did not use delete mapping because the delete button on html page does a get request first thus throws error
     public String delete(@PathVariable Integer id){
         countryService.delete(id);
+        return "redirect:/countries";
+    }
+
+    @RequestMapping(value = "/countries/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String update(Country country){
+        countryService.save(country);
         return "redirect:/countries";
     }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="_layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit country</title>
+</head>
+
+<body>
+
+    <div layout:fragment="content">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Edit Country</h5>
+
+              <!-- Horizontal Form -->
+              <form th:action="@{'/countries/update/' + ${country.id}}" method="put"> <!-- PUT updates the form content to the url of action-->
+                <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Country</label>
+                  <div class="col-sm-10">
+                    <input name="description" th:value="${country.description}" type="text"  class="form-control" id="inputText">
+                    <!--use specify "name" in input above to reflect the variable name in the country model-->
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Capital</label>
+                  <div class="col-sm-10">
+                    <input name="capital" type="text" th:value="${country.capital}" class="form-control" id="inputText">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Code</label>
+                  <div class="col-sm-10">
+                    <input name="code" type="text" th:value="${country.code}" class="form-control" id="inputText">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nationality</label>
+                    <div class="col-sm-10">
+                      <input name="nationality" type="text" th:value="${country.nationality}" class="form-control" id="inputText">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Continent</label>
+                    <div class="col-sm-10">
+                      <input name="continent" type="text" th:value="${country.continent}" class="form-control" id="inputText">
+                    </div>
+                  </div>
+ 
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success">Save</button>
+                  <a href="/countries" type="reset" class="btn btn-warning">Exit</a>
+                </div>
+              </form><!-- End Horizontal Form -->
+
+            </div>
+          </div>
+    </div>
+    
+</body>
+</html>
