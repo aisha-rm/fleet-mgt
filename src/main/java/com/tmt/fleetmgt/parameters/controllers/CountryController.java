@@ -41,6 +41,13 @@ public class CountryController {
         return "parameters/countryEdit";
     }
 
+    @GetMapping("/countryDetails/{id}")
+    public String detailCountry(@PathVariable Integer id, Model model) {
+        Country country = countryService.getCountryById(id);
+        model.addAttribute("country", country);
+        return "parameters/countryDetails";
+    }    
+
     @PostMapping("/countries")  //use same url as the countryList to wh it will be added
     public String save(Country country) {
         countryService.save(country);
